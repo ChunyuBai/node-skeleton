@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+  crossorigin="anonymous"
+/>
+
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <title>Login</title>
+</head>
+
+<body style="background-color: black;">
+  <header>
+    <%- include('partials/header.ejs') %>
+  </header>
+  <h1 style="margin-top: 10px; margin-left: 10px; color: white;"><strong>Login</strong></h1>
+  <form method="POST" action="/login">
+    <h5 style="margin-left: 10px; color: white;">Name</h5>
+    <input placeholder="Username" type="text" name="username" style="margin-bottom: 10px; margin-left: 10px;">
+    <h5 style="margin-left: 10px; color: white;">Password</h5>
+    <input placeholder="Password" type="password" name="password" style="margin-left: 10px;">
+    <br>
+    <button class="btn btn-dark" style="margin-top: 10px; margin-left: 10px; background-color: #ff4500;">Login</button>
+  </form>
+</body>
+</html>

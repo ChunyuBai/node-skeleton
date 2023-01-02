@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS contributions CASCADE;
+CREATE TABLE contributions (
+  id SERIAL PRIMARY KEY NOT NULL,
+  story_id INTEGER REFERENCES stories(id) ON DELETE CASCADE,
+  author_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  content TEXT NOT NULL,
+  upvotes SMALLINT DEFAULT 0
+);

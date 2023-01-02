@@ -31,6 +31,7 @@ app.use(express.static('public'));
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
+const newUser = require('./routes/new-user');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -38,6 +39,7 @@ const usersRoutes = require('./routes/users');
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
+app.use('/register', newUser);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -49,10 +51,6 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-// Registration Page Get
-app.get('/register', (req, res) => {
-  res.render('register');
-});
 
 // Login Page Get
 app.get('/login', (req, res) => {
@@ -63,6 +61,7 @@ app.get('/login', (req, res) => {
 
 // Move to main page after registering
 app.post('/register', (req, res) => {
+
   res.redirect('/');
 });
 

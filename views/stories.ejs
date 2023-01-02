@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Stories</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <h1>
+    <%= greeting %> 📖
+  </h1>
+
+  <section id="story">
+    <p>Placeholder story content section.</p>
+  </section>
+
+  <section id="suggest_contribution">
+    <form action="/story_contribution" method="post">
+      <label for="contribution">Write your contribution here:</label>
+      <input type="text" id="contribution" name="contribution"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+
+  <section id="contributions">
+    <div>Placeholder contribution 1</div>
+    <div>Placeholder contribution 2</div>
+    <div>Placeholder contribution 3</div>
+  </section>
+
+</body>
+
+</html>

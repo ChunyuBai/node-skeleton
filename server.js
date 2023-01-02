@@ -49,14 +49,28 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-// Registration Page
+// Registration Page Get
 app.get('/register', (req, res) => {
-  res.render('register')
+  res.render('register');
 });
 
+// Login Page Get
 app.get('/login', (req, res) => {
-  res.render('login')
+  res.render('login');
 });
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Move to main page after registering
+app.post('/register', (req, res) => {
+  res.redirect('/');
+});
+
+// Move to main page after logging in
+app.post('/login', (req, res) => {
+  res.redirect('/');
+})
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

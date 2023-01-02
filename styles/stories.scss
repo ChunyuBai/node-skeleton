@@ -1,0 +1,48 @@
+
+
+.story {
+  margin: 1em 5em;
+  background-color:#272729 ;
+}
+
+.story:hover {
+  box-shadow: 5px 5px #ff4500;
+}
+
+.storyContent {
+  color: white;
+  display: flex;
+  margin: 2em 2em 1em 2em;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+
+.breakLine {
+  height: 3px;
+  background-color: #000000;
+  size: 1em;
+  width: 95%;
+}
+
+.storyFooter {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin: 0 1.5em 0 2em;
+}
+
+.status {
+  display: flex;
+  justify-content: end;
+}
+
+.completed {
+  color: lime;
+}
+
+.incomplete {
+  color: yellow;
+}

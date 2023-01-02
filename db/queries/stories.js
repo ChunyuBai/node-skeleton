@@ -1,14 +1,7 @@
-const { Pool } = require('pg');
-
-const pool = new Pool({
-  user: 'labber',
-  password: 'labber',
-  host: 'localhost',
-  database: 'midterm'
-});
+const db = require('../connection');
 
 const getStoryWithId = (id) => {
-  return pool
+  return db
     .query(`SELECT id, name, content
             FROM stories
             WHERE id = $1;`, [id])
@@ -19,4 +12,5 @@ const getStoryWithId = (id) => {
       console.log(err.message);
     });
 };
-exports.getStoryWithId = getStoryWithId;
+
+module.exports = { getStoryWithId };

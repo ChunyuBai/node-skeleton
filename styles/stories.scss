@@ -1,0 +1,27 @@
+#contributions,
+#story {
+  p {
+    display: inline-block;
+    width: 50vw;
+    min-height: 100px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: white;
+    border: 2px solid black;
+  }
+}
+
+#contributions {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    margin: 0 15px;
+  }
+}

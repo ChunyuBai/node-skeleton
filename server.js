@@ -44,8 +44,18 @@ app.use('/users', usersRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+// Home Page
 app.get('/', (req, res) => {
   res.render('index');
+});
+
+// Registration Page
+app.get('/register', (req, res) => {
+  res.render('register')
+});
+
+app.get('/login', (req, res) => {
+  res.render('login')
 });
 
 app.listen(PORT, () => {

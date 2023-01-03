@@ -1,4 +1,16 @@
+.createStory {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
 
+.createStoryButton {
+  background-color: #ff4500;
+}
+
+.createStoryButton:hover {
+  background-color: #c23805;
+}
 
 .story {
   margin: 1em 5em;

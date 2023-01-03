@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create story</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/newStory.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <!--App JS-->
+  <script src="/scripts/newStory.js"></script>
+
+
+</head>
+<body>
+  <h1>Create story</h1>
+  <!-- create a warning message and set display situation default as none -->
+  <span class="erroMessage" style="display: none;"></span>
+  <form class="story_form">
+    <div>
+      <label for="storyName">Story Name:</label>
+      <input
+        class="storyName"
+        type="text"
+        name="name"
+        placeholder="Enter a story name"
+      />
+      <label for="content">Content: </label>
+      <textarea
+      class = "content"
+      type="text"
+      name="content"
+      placeholder="Enter story content"
+      ></textarea>
+      <button type="submit" class="submit_story">submit</button>
+    </div>
+  </form>
+</body>
+</html>

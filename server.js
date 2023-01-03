@@ -5,6 +5,8 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const cookieSession = require('cookie-session');
+const db = require('./db/connection');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -25,13 +27,19 @@ app.use(
   })
 );
 app.use(express.static('public'));
+app.use(cookieSession({
+  name: 'session',
+  secret: 'blue-lobster-jumpscare',
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
+
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const newUser = require('./routes/new-user');
+const loginUser = require('./routes/loginUser');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -40,6 +48,7 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/register', newUser);
+app.use('/login', loginUser);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -48,28 +57,18 @@ app.use('/register', newUser);
 
 // Home Page
 app.get('/', (req, res) => {
-  res.render('index');
+
+  const user = db
+  .query(`SELECT *
+  FROM users
+  WHERE id = $1
+  LIMIT 1;
+  `, [req.session.userID])
+  .then(result => {
+    return result.rows[0];
+  })
+  res.render('index', {user: user});
 });
-
-
-// Login Page Get
-app.get('/login', (req, res) => {
-  res.render('login');
-});
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Move to main page after registering
-app.post('/register', (req, res) => {
-
-  res.redirect('/');
-});
-
-// Move to main page after logging in
-app.post('/login', (req, res) => {
-  res.redirect('/');
-})
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

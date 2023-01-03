@@ -17,7 +17,8 @@ router.post('/',(req,res) => {
     RETURNING *;`,
     [storyName,content])// $1 = storyName $2 = content
     .then(result => {
-      return result.rows[0];// only return one object
+      let id = result.rows[0].id;
+      return res.json(id);// only return json format to front end
     })
 });
 module.exports = router;

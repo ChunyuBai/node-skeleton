@@ -4,3 +4,7 @@ public/styles
 *.log
 *.sqlite3
 .DS_Store
+server_BACKUP_18216.js
+server_BASE_18216.js
+server_LOCAL_18216.js
+server_REMOTE_18216.js

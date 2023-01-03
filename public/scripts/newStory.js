@@ -24,6 +24,12 @@ $(document).ready(function() {
         url:'/new',
         data: userInput
       })
+      .then ( (res) => {
+        console.log('response====', res);
+        //ajax front end redirect to a new page
+        window.location.href=`http://localhost:8080/stories/${res}`;
+      }
+      )
     }
   })
 })

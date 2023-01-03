@@ -1,9 +1,9 @@
 INSERT INTO stories (name, content, author_id, is_complete) VALUES
-('story01', 'story01 content',1,true
+('Quisque tincidunt', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu metus est. Nullam ex elit, iaculis at magna eu, maximus mollis orci. Quisque tincidunt faucibus lorem, id dictum dui rhoncus in. Fusce et elit eu sapien vulputate eleifend malesuada non dolor. Nunc mi magna, suscipit vitae rutrum non, commodo vitae ipsum. Duis tellus mauris, pulvinar eu nisi eu, efficitur cursus sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla ipsum ut dui vestibulum, nec tristique metus laoreet. Donec eleifend massa ac diam venenatis dictum.',1,true
 ),
-('story02', 'story02 content',2,true
+('Vivamus mauris', 'Donec quis urna ligula. Morbi interdum est sed sapien tempus, vel iaculis leo iaculis. Nulla lorem sem, ornare vitae tortor eget, eleifend blandit odio. Quisque at ultricies sem. Sed et augue vel enim maximus mollis vel in mauris. Praesent volutpat luctus vulputate. Suspendisse potenti. Nam nec mollis turpis, at vulputate ipsum. Mauris in dui sit amet mi tristique fringilla. Vivamus mauris dolor, efficitur id mattis at, fermentum non mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut vulputate eu arcu vel bibendum. Etiam congue egestas vestibulum.',2,true
 ),
-('story03', 'story03 content',2,false
+('Pellentesque', 'Aenean erat orci, ornare id neque ac, ullamcorper tincidunt sapien. Aliquam ac erat turpis. Praesent metus massa, imperdiet a pulvinar vitae, imperdiet et ex. Ut vel orci tempus, efficitur nisl quis, sollicitudin risus. Mauris eu mi arcu. Suspendisse eget lacinia nulla, at placerat eros. Pellentesque id lectus quis risus fermentum facilisis.',2,false
 ),
-('story04', 'story04 content', 2, true
+('Aliquam', 'Vivamus cursus felis risus, vel hendrerit diam mollis eu. Sed et metus tempus, porta felis non, mollis augue. Aliquam et viverra turpis. Vestibulum semper dictum erat sit amet iaculis. In in elit tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque vitae mollis mauris. Integer convallis nisl vel nisi consequat, ac vehicula orci aliquam. Nam mollis risus ut neque gravida pretium.', 2, true
 );

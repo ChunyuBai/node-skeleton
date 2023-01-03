@@ -57,7 +57,7 @@ app.use('/login', loginUser);
 
 // Home Page
 app.get('/', (req, res) => {
-
+//
   const user = db
   .query(`SELECT *
   FROM users

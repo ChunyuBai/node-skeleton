@@ -43,20 +43,19 @@
 
   <h2>Submitted contributions</h2>
   <section id="contributions">
-    <div>
-      <p>Placeholder contribution 1</p>
-      <section>
-        <p>Contributor name</p>
-        <p class="upvotes">0 <i class="fa-solid fa-arrow-up"></i></p>
-      </section>
-    </div>
-    <div>
-      <p>Placeholder contribution 2</p>
-      <section>
-        <p>Contributor name</p>
-        <p class="upvotes">0 <i class="fa-solid fa-arrow-up"></i></p>
-      </section>
-    </div>
+    <% for (let item of contributions) { %>
+      <div>
+        <p>
+          <%= item.content %>
+        </p>
+        <section>
+          <p>Contributor name</p>
+          <p><span class="upvotes">
+              <%= item.upvotes %>
+            </span> <i class="fa-solid fa-arrow-up"></i></p>
+        </section>
+      </div>
+      <% } %>
   </section>
 
 </body>

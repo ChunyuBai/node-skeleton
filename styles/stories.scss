@@ -11,6 +11,18 @@
   }
 }
 
+#suggest_contribution {
+  margin-top: 30px;
+
+  label {
+    padding-bottom: 10px;
+  }
+
+  input {
+    margin-top: 10px;
+  }
+}
+
 #contributions {
   display: flex;
   flex-direction: column;

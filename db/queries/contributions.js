@@ -4,7 +4,8 @@ const getContributionsWithStoryId = (id) => {
   return db
     .query(`SELECT *
             FROM contributions
-            WHERE story_id = $1;`, [id])
+            WHERE story_id = $1
+            ORDER BY upvotes DESC;`, [id])
     .then((result) => {
       return result.rows;
     })

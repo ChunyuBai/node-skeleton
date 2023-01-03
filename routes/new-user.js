@@ -5,7 +5,7 @@ const db = require('../db/connection');
 const generateRandomString = require('../helper_functions/randomString.js');
 
 router.get('/', (req, res) => {
-  res.render('register');
+  res.render('register', {user: null});
 });
 
 router.post('/', (req, res) => {

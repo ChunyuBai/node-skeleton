@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Stories</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/stories.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    type="text/css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <h1>
+    <%= title %> 📖
+  </h1>
+
+  <section id="story">
+    <div>
+      <%= content %>
+    </div>
+  </section>
+
+  <section id="suggest_contribution">
+    <form action="/story_contribution" method="post">
+      <label for="contribution">Write a new contribution:</label>
+      <textarea id="contribution" name="contribution" cols="30" rows="10"></textarea>
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+
+  <h2>Submitted contributions</h2>
+  <section id="contributions">
+    <% for (let item of contributions) { %>
+      <div>
+        <p>
+          <%= item.content %>
+        </p>
+        <section>
+          <p>Contributor name</p>
+          <p><span class="upvotes">
+              <%= item.upvotes %>
+            </span> <i class="fa-solid fa-arrow-up"></i></p>
+        </section>
+      </div>
+      <% } %>
+  </section>
+
+</body>
+
+</html>

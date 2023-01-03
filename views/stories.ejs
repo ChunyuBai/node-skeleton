@@ -12,7 +12,13 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/stories.css" />
+
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="/styles/contributions.css" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -23,39 +29,46 @@
 </head>
 
 <body>
-  <h1>
-    <%= title %> 📖
-  </h1>
 
-  <section id="story">
-    <div>
-      <%= content %>
-    </div>
-  </section>
+  <header>
+    <%- include('partials/header.ejs') %>
+  </header>
 
-  <section id="suggest_contribution">
-    <form action="/story_contribution" method="post">
-      <label for="contribution">Write a new contribution:</label>
-      <textarea id="contribution" name="contribution" cols="30" rows="10"></textarea>
-      <input type="submit" value="Submit">
-    </form>
-  </section>
+  <main>
+    <h1 class="story-title text-light">
+      <%= title %> 📖
+    </h1>
 
-  <h2>Submitted contributions</h2>
-  <section id="contributions">
-    <% for (let item of contributions) { %>
+    <section id="story">
       <div>
-        <p>
-          <%= item.content %>
-        </p>
-        <section>
-          <p><span class="upvotes">
-              <%= item.upvotes %>
-            </span> <i class="fa-solid fa-circle-up"></i></p>
-        </section>
+        <%= content %>
       </div>
-      <% } %>
-  </section>
+    </section>
+
+    <section id="suggest_contribution">
+      <form action="/story_contribution" method="post">
+        <label for="contribution">Write a new contribution:</label>
+        <textarea id="contribution" name="contribution" cols="30" rows="10"></textarea>
+        <input type="submit" value="Submit" class="btn btn-dark ">
+      </form>
+    </section>
+
+    <h2 class="submitted-contributions text-light">Submitted contributions</h2>
+    <section id="contributions">
+      <% for (let item of contributions) { %>
+        <div>
+          <p>
+            <%= item.content %>
+          </p>
+          <section>
+            <p><span class="upvotes">
+                <%= item.upvotes %>
+              </span> <i class="fa-solid fa-circle-up"></i></p>
+          </section>
+        </div>
+        <% } %>
+    </section>
+  </main>
 
 </body>
 

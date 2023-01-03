@@ -40,7 +40,7 @@ const contributionRoutes = require('./routes/contribution');
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
-app.get('/stories', storyRoutes);
+app.get('/stories/:id', storyRoutes);
 app.post('/story_contribution', contributionRoutes);
 // Note: mount other resources here, using the same pattern above
 

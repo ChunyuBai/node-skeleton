@@ -65,9 +65,15 @@ app.get('/', (req, res) => {
   LIMIT 1;
   `, [req.session.userID])
   .then(result => {
-    return result.rows[0];
+    res.render('index', {user: result.rows[0]});
   })
-  res.render('index', {user: user});
+});
+
+// Logout
+app.post("/logout", (req, res) => {
+  res.clearCookie('session');
+  res.clearCookie('session.sig');
+  res.render("login", {user: null});
 });
 
 app.listen(PORT, () => {

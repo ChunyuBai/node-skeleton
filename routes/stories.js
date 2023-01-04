@@ -6,11 +6,12 @@ const db = require('../db/connection');
 const userByIdQuery = require('../db/queries/userById');
 
 
-router.get('/stories/:id', (req, res) => {
+router.get('/:id', (req, res) => {
 
   const id = req.params.id;
   const story = storyQuery.getStoryWithId(id);
   const contributions = contributionsQuery.getContributionsWithStoryId(id);
+  const status = false;
   const user = db
   .query(`SELECT *
   FROM users
@@ -33,7 +34,8 @@ router.get('/stories/:id', (req, res) => {
       id: storyData.id,
       content: storyData.content,
       contributions: contributionData,
-      user: userData
+      user: userData,
+      status: status
     };
     res.render('stories', templateVars);
   })

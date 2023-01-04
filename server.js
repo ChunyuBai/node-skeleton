@@ -64,7 +64,7 @@ app.use('/login', loginUser);
 
 // Home Page
 app.get('/', (req, res) => {
-  const user = db
+  db
   .query(`SELECT *
   FROM users
   WHERE id = $1

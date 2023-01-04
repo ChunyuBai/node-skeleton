@@ -4,6 +4,7 @@ const storyQuery = require('../db/queries/stories');
 const contributionsQuery = require('../db/queries/contributions');
 
 router.get('/stories/:id', (req, res) => {
+  const specificUser = req.session.user_id;
   const id = req.params.id;
   const story = storyQuery.getStoryWithId(id);
   const contributions = contributionsQuery.getContributionsWithStoryId(id);
@@ -16,7 +17,8 @@ router.get('/stories/:id', (req, res) => {
         title: storyData.name,
         id: storyData.id,
         content: storyData.content,
-        contributions: contributionData
+        contributions: contributionData,
+        user: specificUser
       };
 
       // console.log('tVars:', templateVars);

@@ -22,15 +22,15 @@ router.post('/', (req, res) => {
   `, [email, password])
   .then(result => {
 
-    // Creates a cookie
     const user = result.rows[0];
-    req.session.userID = user.id;
 
-      if (!user || user && user.password !== password) {
-        res.send('Error!');
+    if (user === undefined || user && user.password !== password) {
+      res.send('Error!');
+    } else {
+        req.session.userID = user.id;
+        res.redirect('/');
+        return user;
       }
-    res.redirect('/');
-    return user;
   })
 });
 

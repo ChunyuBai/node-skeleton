@@ -48,32 +48,39 @@
         <%= content %>
       </div>
     </section>
-    <% if (user && !status) { %>
-      <section id="suggest_contribution">
-        <form action="/story_contribution" method="post" class="contribution_form">
-          <label for="contribution">Write a new contribution:</label>
-          <textarea id="contribution" name="contribution" cols="30" rows="5"></textarea>
-          <input type="hidden" name="story_id" value="<%= id %>">
-          <input type="submit" value="Submit" class="btn btn-dark ">
-        </form>
-      </section>
 
-      <h2 class="submitted-contributions text-light">Submitted contributions</h2>
-      <section id="contributions">
-        <% for (let item of contributions) { %>
-          <div>
-            <p>
-              <%= item.content %>
-            </p>
-            <section>
-              <p><span class="upvotes">
-                  <%= item.upvotes %>
-                </span> <i class="fa-solid fa-circle-up"></i></p>
-            </section>
-          </div>
-          <% } %>
+    <% if (status) { %>
+      <section class="complete">
+        <h2>The End.</h2>
       </section>
       <% } %>
+
+        <% if (user && !status) { %>
+          <section id="suggest_contribution">
+            <form action="/story_contribution" method="post" class="contribution_form">
+              <label for="contribution">Suggest what happens next...</label>
+              <textarea id="contribution" name="contribution" cols="30" rows="5"></textarea>
+              <input type="hidden" name="story_id" value="<%= id %>">
+              <input type="submit" value="Submit" class="btn btn-dark ">
+            </form>
+          </section>
+
+          <h2 class="submitted-contributions text-light">Submitted contributions</h2>
+          <section id="contributions">
+            <% for (let item of contributions) { %>
+              <div>
+                <p>
+                  <%= item.content %>
+                </p>
+                <section>
+                  <p><span class="upvotes">
+                      <%= item.upvotes %>
+                    </span> <i class="fa-solid fa-circle-up"></i></p>
+                </section>
+              </div>
+              <% } %>
+          </section>
+          <% } %>
   </main>
 
 </body>

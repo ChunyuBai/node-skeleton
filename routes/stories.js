@@ -25,7 +25,7 @@ router.get('/stories/:id', (req, res) => {
         user: specificUser
       };
 
-      console.log('tVars story:', templateVars.status);
+      console.log('tVars status:', templateVars.status);
       res.render('stories', templateVars);
     });
   });

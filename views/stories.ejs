@@ -48,7 +48,7 @@
         <%= content %>
       </div>
     </section>
-    <% if (user) { %>
+    <% if (user && !status) { %>
       <section id="suggest_contribution">
         <form action="/story_contribution" method="post" class="contribution_form">
           <label for="contribution">Write a new contribution:</label>

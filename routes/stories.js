@@ -5,6 +5,7 @@ const contributionsQuery = require('../db/queries/contributions');
 const db = require('../db/connection');
 const userByIdQuery = require('../db/queries/userById');
 
+// This allows the homepage to see the stories DB
 router.get('/', (req, res) => {
   db
   .query(`SELECT *

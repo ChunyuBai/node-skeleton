@@ -2,7 +2,7 @@ const db = require('../connection');
 
 const getStoryWithId = (id) => {
   return db
-    .query(`SELECT id, name, content
+    .query(`SELECT *
             FROM stories
             WHERE id = $1;`, [id])
     .then((result) => {

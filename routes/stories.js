@@ -21,12 +21,14 @@ router.get('/:id', (req, res) => {
         title: storyData.name,
         id: storyData.id,
         content: storyData.content,
+        status: storyData.is_complete,
         contributions: contributionData,
         user: specificUser
       };
 
       // console.log('tVars:', templateVars);
       // console.log('tVars user:', templateVars.user);
+      console.log('tVars status:', templateVars.status);
       res.render('stories', templateVars);
     });
   });

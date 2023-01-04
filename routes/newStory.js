@@ -1,9 +1,17 @@
 const express = require('express');
 const router  = express.Router();
-const db = require('../db/connection')
+const db = require('../db/connection');
 
 router.get('/',(req,res) => {
-  res.render('create_story', {user: null});//use create_story as templete
+  db
+  .query(`SELECT *
+  FROM users
+  WHERE id = $1
+  LIMIT 1;
+  `, [req.session.userID])
+  .then(result => {
+    res.render('create_story', {user: result.rows[0]});
+  })//use create_story as templete
 });
 
 router.post('/',(req,res) => {

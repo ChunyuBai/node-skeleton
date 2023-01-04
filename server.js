@@ -79,7 +79,7 @@ app.get('/', (req, res) => {
 app.post("/logout", (req, res) => {
   res.clearCookie('session');
   res.clearCookie('session.sig');
-  res.render("login", {user: null});
+  res.render("index", {user: null});
 });
 
 app.listen(PORT, () => {

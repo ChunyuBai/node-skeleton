@@ -3,7 +3,7 @@ const router  = express.Router();
 const db = require('../db/connection')
 
 router.get('/',(req,res) => {
-  res.render('create_story');//use create_story as templete
+  res.render('create_story', {user: null});//use create_story as templete
 });
 
 router.post('/',(req,res) => {
@@ -20,5 +20,7 @@ router.post('/',(req,res) => {
       let id = result.rows[0].id;
       return res.json(id);// only return json format to front end
     })
+
+
 });
 module.exports = router;

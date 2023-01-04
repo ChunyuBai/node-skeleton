@@ -3,7 +3,7 @@ const router  = express.Router();
 const db = require('../db/connection')
 
 router.get('/',(req,res) => {
-  res.render('create_story', {user: null});//use create_story as templete
+  res.render('create_story', {user: null});//use create_story as templete, for now has a permanently null user
 });
 
 router.post('/',(req,res) => {

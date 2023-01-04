@@ -5,6 +5,13 @@ const contributionsQuery = require('../db/queries/contributions');
 const db = require('../db/connection');
 const userByIdQuery = require('../db/queries/userById');
 
+router.get('/', (req, res) => {
+  db
+  .query(`SELECT *
+  FROM stories;
+  `)
+  .then(result => res.send(result.rows));
+})
 
 router.get('/:id', (req, res) => {
 

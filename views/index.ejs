@@ -35,7 +35,11 @@
   <section class="stories">
 
     <div class="createStory">
-      <a class="btn btn-dark createStoryButton" href="/new">Create a new story!</a>
+      <% if (!user) { %>
+        <a class="btn btn-dark createStoryButton" href="/login">Create a new story!</a>
+      <% } else { %>
+        <a class="btn btn-dark createStoryButton" href="/new">Create a new story!</a>
+      <% } %>
     </div>
 
     <div class="story">

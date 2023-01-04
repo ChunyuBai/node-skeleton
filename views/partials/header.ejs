@@ -14,10 +14,17 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+      <% if (!user) { %>
         <form method="POST" action="/login" name="username" style="position: fixed; top: 25px; right: 20px; border: 0;">
-          <a class="btn btn-dark" style="background-color: #ff4500;" href="/register">Register</a>
-          <a class="btn btn-dark submit" href="/login" style="margin-left: 10px; background-color: #ff4500;">Log In</a>
+          <a class="btn btn-outline-dark" style="background-color: #ff4500;" href="/register">Register</a>
+          <a class="btn btn-outline-dark submit" href="/login" style="margin-left: 10px; background-color: #ff4500;">Log In</a>
         </form>
+      <% } else { %>
+        <form method="POST" action="/logout" name="loggedIn" style="display: flex; margin-left: 1150px;">
+          <p style="position: fixed; top: 25px; right: 7em; border: 0; padding-right: 20px; padding-top: 10px; margin-bottom: 0;">Hello <%= user.name %>!</p>
+          <button class="btn btn-outline-dark" style="background-color: #ff4500; position: fixed; top: 25px; right: 20px; border: 0;">Logout</button>
+        </form>
+      <% } %>
     </div>
     </div>
   </nav>

@@ -3,7 +3,7 @@ const router  = express.Router();
 const db = require('../db/connection');
 
 router.get('/',(req,res) => {
-  const user = db
+  db
   .query(`SELECT *
   FROM users
   WHERE id = $1

@@ -46,6 +46,7 @@ app.use('/register', newUser);
 app.use('/new',newStory);
 
 app.get('/stories/:id', storyRoutes);
+app.post('/stories/:id', storyRoutes);
 app.post('/story_contribution', contributionRoutes);
 // Note: mount other resources here, using the same pattern above
 

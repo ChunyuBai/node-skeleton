@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const storyQuery = require('../db/queries/stories');
 const contributionsQuery = require('../db/queries/contributions');
+const db = require('../db/connection');
 
 router.get('/stories/:id', (req, res) => {
   const id = req.params.id;
@@ -19,10 +20,20 @@ router.get('/stories/:id', (req, res) => {
         contributions: contributionData
       };
 
-      console.log('tVars:', templateVars);
+      // console.log('tVars:', templateVars);
       res.render('stories', templateVars);
     });
   });
 });
+
+router.post('/stories/:id', (req,res) => {
+ let upvoteNum = Number(req.body.upvoteNum);
+ let id = req.params.id;
+ return db
+ .query(`UPDATE contributions
+ SET upvotes = $1
+ WHERE id = $2`,
+ [upvoteNum,id]);
+})
 
 module.exports = router;

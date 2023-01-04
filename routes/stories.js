@@ -2,9 +2,12 @@ const express = require('express');
 const router  = express.Router();
 const storyQuery = require('../db/queries/stories');
 const contributionsQuery = require('../db/queries/contributions');
+const userByIdQuery = require('../db/queries/userById');
+
+
 
 router.get('/stories/:id', (req, res) => {
-  const specificUser = req.session.user_id;
+  const specificUser = req.session.userID;
   const id = req.params.id;
   const story = storyQuery.getStoryWithId(id);
   const contributions = contributionsQuery.getContributionsWithStoryId(id);
@@ -21,7 +24,7 @@ router.get('/stories/:id', (req, res) => {
         user: specificUser
       };
 
-      // console.log('tVars:', templateVars);
+      // console.log('tVars user:', templateVars.user);
       res.render('stories', templateVars);
     });
   });

@@ -20,11 +20,12 @@ router.get('/stories/:id', (req, res) => {
         title: storyData.name,
         id: storyData.id,
         content: storyData.content,
+        status: storyData.is_complete,
         contributions: contributionData,
         user: specificUser
       };
 
-      // console.log('tVars user:', templateVars.user);
+      console.log('tVars story:', templateVars.status);
       res.render('stories', templateVars);
     });
   });

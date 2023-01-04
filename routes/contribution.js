@@ -8,7 +8,7 @@ router.post('/', (req, res) => {
   // console.log('req:', req);
 
   const content = req.body.contribution;
-  const author_id = req.session.userID;; // should be able to get this from cookie data (req.session.user_id)
+  const author_id = req.session.userID;
   const story_id = req.body.story_id;
 
   // console.log('story contribution:', content);
@@ -44,6 +44,6 @@ router.post('/:id', (req,res) => {
   dbquery.then(()=>{
     res.send({'message': 'contribution changed'})
   })
- })
+});
 
 module.exports = router;

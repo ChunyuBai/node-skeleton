@@ -21,7 +21,6 @@ section {
   div {
     display: inline-block;
     width: 50vw;
-    min-height: 100px;
     padding: 10px 15px;
     margin-top: 10px;
     background-color: #272729;
@@ -82,9 +81,20 @@ form {
   background-color: white;
   width: 5em;
   height: 2em;
+  margin-right: 1em;
 }
 
 .complete {
   margin-top: 15px;
   color: #ff4500;
+}
+
+.incomplete {
+  margin-top: 15px;
+  color: green;
+}
+
+.addContribution {
+  width: 5em;
+  height: 2em;
 }

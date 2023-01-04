@@ -19,7 +19,9 @@ router.get('/:id', (req, res) => {
   const id = req.params.id;
   const story = storyQuery.getStoryWithId(id);
   const contributions = contributionsQuery.getContributionsWithStoryId(id);
-  const status = false; // This is hard coded to always show false, must equal to the story status being done/in progress
+
+  console.log('req.session.userID:', req.session);
+
   const user = db
   .query(`SELECT *
   FROM users
@@ -43,7 +45,7 @@ router.get('/:id', (req, res) => {
       content: storyData.content,
       contributions: contributionData,
       user: userData,
-      status: status
+      status: storyData.is_complete
     };
     res.render('stories', templateVars);
   })

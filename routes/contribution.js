@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection')
 
-router.post('/story_contribution', (req, res) => {
+router.post('/', (req, res) => {
 
   // console.log('reqParam:', req.param);
   // console.log('req:', req);
@@ -23,5 +23,27 @@ router.post('/story_contribution', (req, res) => {
       res.redirect(`/stories/${story_id}`);
     })
 });
+
+router.post('/:id', (req,res) => {
+
+  let id = req.params.id;
+  const action = req.query.action;
+  let dbquery;
+
+  if (action === 'upvote') {
+    dbquery = db.query(`UPDATE contributions
+    SET upvotes = upvotes + 1
+    WHERE id = $1`,
+    [id])
+  } else if (action === 'downvote') {
+    dbquery = db.query(`UPDATE contributions
+    SET upvotes = upvotes - 1
+    WHERE id = $1`,
+    [id])
+  }
+  dbquery.then(()=>{
+    res.send({'message': 'contribution changed'})
+  })
+ })
 
 module.exports = router;

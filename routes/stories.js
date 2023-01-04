@@ -7,7 +7,7 @@ const userByIdQuery = require('../db/queries/userById');
 
 
 
-router.get('/stories/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   const specificUser = req.session.userID;
   const id = req.params.id;
   const story = storyQuery.getStoryWithId(id);
@@ -32,14 +32,5 @@ router.get('/stories/:id', (req, res) => {
   });
 });
 
-router.post('/stories/:id', (req,res) => {
- let upvoteNum = Number(req.body.upvoteNum);
- let id = req.params.id;
- return db
- .query(`UPDATE contributions
- SET upvotes = $1
- WHERE id = $2`,
- [upvoteNum,id]);
-})
 
 module.exports = router;

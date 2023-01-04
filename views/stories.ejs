@@ -28,7 +28,7 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <!-- Extre script for upvote function -->
-  <script src="/scripts/upvotes.js"></script>
+  <script defer src="/scripts/upvotes.js"></script>
   <!-- <link rel="stylesheet" href="/styles/upvotes.scss" /> -->
   <!-- <script defer src="/scripts/submit-contribution.js"></script> -->
 </head>
@@ -73,7 +73,7 @@
             <p><span class="upvotes">
                 <div class="upvoteNum" id="upvote-num" style="border:none;"><%= item.upvotes %>
                 </div>
-                <button class="upvote" id="upvote">upvote</button>
+                <button class="upvote-btn" data-id="<%= item.id %>">upvote</button>
               <!-- </span> <i class="fa-solid fa-circle-up"></i> -->
             </p>
           </section>

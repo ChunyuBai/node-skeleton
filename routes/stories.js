@@ -19,7 +19,7 @@ router.get('/stories/:id', (req, res) => {
         contributions: contributionData
       };
 
-      console.log('tVars:', templateVars);
+      // console.log('tVars:', templateVars);
       res.render('stories', templateVars);
     });
   });

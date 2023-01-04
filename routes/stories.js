@@ -4,7 +4,6 @@ const storyQuery = require('../db/queries/stories');
 const contributionsQuery = require('../db/queries/contributions');
 const db = require('../db/connection');
 const userByIdQuery = require('../db/queries/userById');
-const db = require('../db/connection');
 
 
 router.get('/stories/:id', (req, res) => {

@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-  <title>Stories</title>
+  <title>Stories - <%= title %>
+  </title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,6 +30,7 @@
   <!-- Extre script for upvote function -->
   <script src="/scripts/upvotes.js"></script>
   <!-- <link rel="stylesheet" href="/styles/upvotes.scss" /> -->
+  <!-- <script defer src="/scripts/submit-contribution.js"></script> -->
 </head>
 
 <body>
@@ -39,6 +41,9 @@
 
   <main>
     <h1 class="story-title text-light">
+      Story #<span class="story_id">
+        <%= id %>
+      </span>:
       <%= title %> 📖
     </h1>
 
@@ -49,9 +54,10 @@
     </section>
 
     <section id="suggest_contribution">
-      <form action="/story_contribution" method="post">
+      <form action="/story_contribution" method="post" class="contribution_form">
         <label for="contribution">Write a new contribution:</label>
-        <textarea id="contribution" name="contribution" cols="30" rows="10"></textarea>
+        <textarea id="contribution" name="contribution" cols="30" rows="5"></textarea>
+        <input type="hidden" name="story_id" value="<%= id %>">
         <input type="submit" value="Submit" class="btn btn-dark ">
       </form>
     </section>

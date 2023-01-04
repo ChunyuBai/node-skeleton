@@ -5,6 +5,8 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const cookieSession = require('cookie-session');
+const db = require('./db/connection');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -25,9 +27,14 @@ app.use(
   })
 );
 app.use(express.static('public'));
+app.use(cookieSession({
+  name: 'session',
+  secret: 'blue-lobster-jumpscare',
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
+
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
@@ -35,6 +42,7 @@ const newUser = require('./routes/new-user');
 const newStory = require('./routes/newStory');
 const storyRoutes = require('./routes/stories');
 const contributionRoutes = require('./routes/contribution');
+const loginUser = require('./routes/loginUser');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -48,6 +56,7 @@ app.use('/new',newStory);
 app.get('/stories/:id', storyRoutes);
 app.post('/stories/:id', storyRoutes);
 app.post('/story_contribution', contributionRoutes);
+app.use('/login', loginUser);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -56,28 +65,23 @@ app.post('/story_contribution', contributionRoutes);
 
 // Home Page
 app.get('/', (req, res) => {
-  res.render('index');
+  const user = db
+  .query(`SELECT *
+  FROM users
+  WHERE id = $1
+  LIMIT 1;
+  `, [req.session.userID])
+  .then(result => {
+    res.render('index', {user: result.rows[0]});
+  })
 });
 
-
-// Login Page Get
-app.get('/login', (req, res) => {
-  res.render('login');
+// Logout
+app.post("/logout", (req, res) => {
+  res.clearCookie('session');
+  res.clearCookie('session.sig');
+  res.render("login", {user: null});
 });
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Move to main page after registering
-app.post('/register', (req, res) => {
-
-  res.redirect('/');
-});
-
-// Move to main page after logging in
-app.post('/login', (req, res) => {
-  res.redirect('/');
-})
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

@@ -11,7 +11,7 @@ function createStoryElement(story) {
         <a href="/stories/${story.id}">
           <div class="storyContent">
             <span
-              >${escape(story.content)}</span
+              >${escape(story.name)}</span
             >
           </div>
           <hr class="breakLine" />

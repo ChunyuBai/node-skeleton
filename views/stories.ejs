@@ -52,13 +52,6 @@
     <section id="story">
       <div id="story_content">
         <%= content %>
-          <% if (user && (user.id===author) && (!status)) { %>
-
-            <form action="/stories/complete" method="post">
-              <input type="hidden" name="story_id" value="<%= id %>">
-              <input type="submit" name="mark_complete" value="Mark as complete" class="btn btn-dark" />
-            </form>
-            <% } %>
       </div>
     </section>
 
@@ -68,42 +61,58 @@
       </section>
       <% } else { %>
         <section class="incomplete">
-          <h2>To be continued...<h2>
+          <h2>In progress<h2>
         </section>
         <% } %>
 
-          <% if (user && !status) { %>
-            <section id="suggest_contribution">
-              <form action="/story_contribution" method="post" class="contribution_form">
-                <label for="contribution">Suggest what happens next:</label>
-                <textarea id="contribution" name="contribution" cols="30" rows="5"></textarea>
+          <% if (user && (user.id===author) && (!status)) { %>
+            <section>
+              <form action="/stories/complete" method="post" class="complete-story">
                 <input type="hidden" name="story_id" value="<%= id %>">
-                <input type="submit" value="Submit" class="btn btn-dark ">
+                <input type="submit" name="mark_complete" value="Mark as complete" class="btn btn-dark" />
               </form>
             </section>
+            <% } %>
 
-            <h2 class="submitted-contributions text-light">Submitted contributions</h2>
-            <section id="contributions">
-              <% for (let item of contributions) { %>
-                <div>
-                  <p class="contribution">
-                    <%= item.content %>
-                  </p>
-                  <section>
-                    <p><span class="upvotes">
+
+
+              <% if (user && !status) { %>
+                <section id="suggest_contribution">
+                  <form action="/story_contribution" method="post" class="contribution_form">
+                    <label for="contribution">Contribute to this story</label>
+                    <textarea id="contribution" name="contribution" cols="30" rows="5"
+                      placeholder="Suggest what happens next:"></textarea>
+                    <input type="hidden" name="story_id" value="<%= id %>">
+                    <input type="submit" value="Submit" class="btn btn-dark ">
+                  </form>
+                </section>
+
+
+                <section id="contributions">
+                  <h2 class="submitted-contributions text-light">Submitted contributions</h2>
+                  <% for (let item of contributions) { %>
+                    <div>
+                      <p>
+                        <%= item.content %>
+                      </p>
+                      <section>
+                        <!-- <p> -->
+                        <!-- <span class="upvotes"> -->
+                        <p class="upvotes">Upvotes: </p>
                         <div class="upvoteNum" id="upvote-num" style="border:none;">
                           <%= item.upvotes %>
                         </div>
-                        <button class="upvote-btn" data-id="<%= item.id %>">upvote</button>
+                        <button class="upvote-btn btn btn-outline-dark" data-id="<%= item.id %>">Upvote</button>
                         <!-- </span> <i class="fa-solid fa-circle-up"></i> -->
-                      </p>
-                      <button class="addContribution-btn" data-id="<%= item.id %>" data-contribution="<%= item.content %>">Add!</button>
-                  </section>
-                </div>
-                <% } %>
-            </section>
+                        </p>
+                        <button class="addContribution-btn" data-id="<%= item.id %>"
+                          data-contribution="<%= item.content %>">Add!</button>
+                      </section>
+                    </div>
+                    <% } %>
+                </section>
 
-            <% } %>
+                <% } %>
 
   </main>
 

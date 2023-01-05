@@ -1,63 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create story</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create story</title>
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/newStory.css" />
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/newStory.css" />
 
-  <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-    crossorigin="anonymous"
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
     />
 
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <!--App JS-->
-  <script src="/scripts/newStory.js"></script>
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <!--App JS-->
+    <script src="/scripts/newStory.js"></script>
+  </head>
+  <body class="pageBody">
+    <header id="header"><%- include('partials/header.ejs') %></header>
 
-  <!-- Bootstrap JS-->
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-    crossorigin="anonymous"
-  />
-
-</head>
-<body>
-  <header>
-    <%- include('partials/header.ejs') %>
-  </header>
-  <h1>Create story</h1>
-  <!-- create a warning message and set display situation default as none -->
-  <span class="erroMessage" style="display: none;"></span>
-  <form class="story_form">
-    <div>
-      <label for="storyName">Story Name:</label>
-      <input
-        class="storyName"
-        type="text"
-        name="name"
-        placeholder="Enter a story name"
-      />
-      <label for="content">Content: </label>
-      <textarea
-      class = "content"
-      type="text"
-      name="content"
-      placeholder="Enter story content"
-      ></textarea>
-      <button type="submit" class="submit_story">submit</button>
+    <div class="mainContent">
+      <h1 class="title">Create a story</h1>
+      <!-- create a warning message and set display situation default as none -->
+      <span class="errorMessage" style="display: none"></span>
+      <form class="story_form">
+        <div class="bodyAttributes">
+          <label class="storyNameLabel" for="storyName">Story Name:</label>
+          <div class="storyNameDiv">
+            <input
+              class="storyName"
+              type="text"
+              name="name"
+              placeholder="Enter a story name"
+            />
+          </div>
+          <label class="storyBodyLabel" for="content">Content: </label>
+          <div class="storyBodyDiv">
+            <textarea
+              class="content"
+              type="text"
+              name="content"
+              placeholder="Enter story content"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark" id="submit_story">
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
-  </form>
-</body>
+  </body>
 </html>

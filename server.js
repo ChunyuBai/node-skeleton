@@ -55,6 +55,7 @@ app.use('/new',newStory);
 
 app.use('/stories', storyRoutes);
 app.use('/story_contribution', contributionRoutes);
+app.use('/complete', storyRoutes);
 app.use('/login', loginUser);
 // Note: mount other resources here, using the same pattern above
 
@@ -64,7 +65,7 @@ app.use('/login', loginUser);
 
 // Home Page
 app.get('/', (req, res) => {
-  const user = db
+  db
   .query(`SELECT *
   FROM users
   WHERE id = $1

@@ -4,72 +4,39 @@
 <head>
   <title>Home Page</title>
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Bootstrap CSS -->
-    <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-    crossorigin="anonymous"
-  />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/stories.css">
+  <link rel="stylesheet" href="/styles/stories.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/client.js"></script>
 </head>
 
-<body style="background-color: #000000;">
-
-  <header>
+<body class="homePageBody">
+  <header id="header">
     <%- include('partials/header.ejs') %>
   </header>
 
-  <section class="stories">
-
-    <div class="createStory">
-      <% if (!user) { %>
-        <a class="btn btn-dark createStoryButton" href="/login">Create a new story!</a>
+  <div class="createStory">
+    <% if (!user) { %>
+      <a class="btn btn-dark createStoryButton" href="/login">Create a new story!</a>
       <% } else { %>
         <a class="btn btn-dark createStoryButton" href="/new">Create a new story!</a>
-      <% } %>
-    </div>
+        <% } %>
+  </div>
 
-    <div class="story">
-      <a href="/stories/5">
-    <div class="storyContent">
-        <span>Later we will link this to the text of the story, this story is complete!</span>
-      </div>
-      <hr class="breakLine">
-      <div class="storyFooter">
-        <div class="status">
-          <p class="completed">Completed</p>
-        </div>
-      </div>
-    </a>
-    </div>
-
-    <div class="story">
-      <a href="/">
-      <div class="storyContent">
-        <span>Later we will link this to the text of the story, this story is still in progress!</span>
-      </div>
-      <hr class="breakLine">
-      <div class="storyFooter">
-        <div class="status">
-          <p class="incomplete">In progress</p>
-        </div>
-      </div>
-    </a>
-    </div>
-  </section>
+  <section id="stories-container"></section>
 </body>
 
 </html>

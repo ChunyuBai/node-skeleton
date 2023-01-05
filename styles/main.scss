@@ -10,11 +10,21 @@ p {
   color: white;
 }
 
-.stories {
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#stories-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 3em;
+  margin-top: 1em;
+}
+
+.homePageBody {
+  background-color: black;
 }
 
 

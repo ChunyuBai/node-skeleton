@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Bootstrap CSS -->
-  <link
-  rel="stylesheet"
-  href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-  crossorigin="anonymous"
-/>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
 
-  <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/authorisation.css" />
 
-  <title>Registration</title>
-</head>
+    <title>Registration</title>
+  </head>
 
-<body style="background-color: black;">
-  <header>
-    <%- include('partials/header.ejs') %>
-  </header>
-  <h1 style="margin-top: 10px; margin-left: 10px; color: white;"><strong>Create Account</strong></h1>
-  <form method="POST" action="/register">
-    <h5 style="margin-left: 10px; color: white;">Username</h5>
-    <input placeholder="Username" type="text" name="username" style="margin-bottom: 10px; margin-left: 10px;">
-    <h5 style="margin-left: 10px; color: white;">Email</h5>
-    <input placeholder="Email" type="email" name="email" style="margin-bottom: 10px; margin-left: 10px;">
-    <h5 style="margin-left: 10px; color: white;">Password</h5>
-    <input placeholder="Password" type="password" name="password" style="margin-left: 10px;">
-    <br>
-    <button class="btn btn-dark" style="margin-top: 10px; margin-left: 10px; background-color: #ff4500;">Register</button>
-  </form>
-</body>
+  <body class="pageBody">
+    <header id="header"><%- include('partials/header.ejs') %></header>
+    <div class="mainContent">
+      <h1><strong>Create Account</strong></h1>
+      <form method="POST" action="/register">
+        <h5>Username</h5>
+        <div class="inputField">
+          <input placeholder="Username" type="text" name="username" />
+        </div>
+        <h5>Email</h5>
+        <div class="inputField">
+          <input placeholder="Email" type="email" name="email" />
+        </div>
+        <h5>Password</h5>
+        <div class="inputField">
+          <input placeholder="Password" type="password" name="password" />
+        </div>
+        <br />
+        <div class="submitButton">
+          <button class="btn btn-dark registerButton">Register</button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>

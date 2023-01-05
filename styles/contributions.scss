@@ -8,8 +8,8 @@ label {
 
 main {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 
 section {
@@ -20,12 +20,12 @@ section {
 #story {
   div {
     display: inline-block;
-    width: 50vw;
-    padding: 10px 15px;
-    margin-top: 10px;
     background-color: #272729;
-    color: white;
     border: 2px solid black;
+    color: white;
+    margin-top: 10px;
+    padding: 10px 15px;
+    width: 50vw;
 
     p {
       color: white;
@@ -57,16 +57,16 @@ section {
 
 form {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 
   input {
     margin: 0 15px;
   }
 
   textarea {
-    border: 2px solid black;
     background-color: #272729;
+    border: 2px solid black;
     color: white;
     width: 50vw;
   }
@@ -79,22 +79,22 @@ form {
 
 .upvote-btn {
   background-color: white;
-  width: 5em;
   height: 2em;
   margin-right: 1em;
+  width: 5em;
 }
 
 .complete {
-  margin-top: 15px;
   color: #ff4500;
+  margin-top: 15px;
 }
 
 .incomplete {
-  margin-top: 15px;
   color: green;
+  margin-top: 15px;
 }
 
 .addContribution {
-  width: 5em;
   height: 2em;
+  width: 5em;
 }

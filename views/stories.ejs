@@ -102,13 +102,15 @@
                         <div class="upvoteNum" id="upvote-num" style="border:none;">
                           <%= item.upvotes %>
                         </div>
-                        <button class="upvote-btn btn btn-outline-dark" data-id="<%= item.id %>">Upvote</button>
+
                         <!-- </span> <i class="fa-solid fa-circle-up"></i> -->
-                        </p>
                         <% if (user && (user.id===author)) { %>
-                        <button class="addContribution-btn" data-id="<%= item.id %>"
-                          data-contribution="<%= item.content %>">Add!</button>
+                          <button class="addContribution-btn btn btn-outline-dark" data-id="<%= item.id %>"
+                            data-contribution="<%= item.content %>">Add to story</button>
                           <% } %>
+                            <% if (user && (user.id!==author)) { %>
+                              <button class="upvote-btn btn btn-outline-dark" data-id="<%= item.id %>">Upvote</button>
+                              <% } %>
                       </section>
                     </div>
                     <% } %>

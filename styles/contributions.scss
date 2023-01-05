@@ -16,6 +16,10 @@ section {
   display: flex;
 }
 
+h2 {
+  font-size: 1.5rem;
+}
+
 #contributions,
 #story {
   div {
@@ -46,24 +50,52 @@ section {
 }
 
 #suggest_contribution {
-  margin-top: 30px;
+  margin-top: 50px;
 
   label {
     padding-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 500;
   }
 
   input {
     margin-top: 10px;
+    background-color: #ff4500;
+    color: black;
+
+    &:hover {
+      color: white;
+    }
   }
 }
 
 #contributions {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
 
   section {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
+
+    i {
+      margin-left: 10px;
+    }
+
+    .upvoteNum {
+      padding: 0;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .upvotes {
+      margin-bottom: 0;
+      margin-right: 10px;
+    }
   }
 }
 
@@ -81,6 +113,7 @@ form {
     border: 2px solid black;
     color: white;
     width: 50vw;
+    padding: 15px;
   }
 }
 
@@ -94,20 +127,32 @@ form {
 }
 
 .upvote-btn {
-  background-color: white;
-  height: 2em;
-  margin-right: 1em;
-  width: 5em;
+  background-color: #ff4500;
+  border: 0;
+
+  &:hover {
+    background-color: #ff4500;
+  }
 }
 
 .complete {
-  color: #ff4500;
-  margin-top: 15px;
+  color: lime;
+  margin-top: 10px;
+
+  &-story input {
+    background-color: #ff4500;
+    color: black;
+
+    &:hover {
+      color: white;
+      background-color: #ff4500;
+    }
+  }
 }
 
 .incomplete {
-  color: green;
-  margin-top: 15px;
+  color: yellow;
+  margin-top: 10px;
 }
 
 .addContribution {

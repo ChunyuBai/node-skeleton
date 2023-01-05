@@ -51,6 +51,9 @@
     <section id="story">
       <div>
         <%= content %>
+          <% if ((user.id===author) && (!status)) { %>
+            <button class="btn btn-dark">Mark as complete</button>
+            <% } %>
       </div>
     </section>
 
@@ -67,7 +70,7 @@
           <% if (user && !status) { %>
             <section id="suggest_contribution">
               <form action="/story_contribution" method="post" class="contribution_form">
-                <label for="contribution">Suggest what happens next...</label>
+                <label for="contribution">Suggest what happens next:</label>
                 <textarea id="contribution" name="contribution" cols="30" rows="5"></textarea>
                 <input type="hidden" name="story_id" value="<%= id %>">
                 <input type="submit" value="Submit" class="btn btn-dark ">

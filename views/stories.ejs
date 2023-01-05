@@ -52,7 +52,11 @@
       <div>
         <%= content %>
           <% if ((user.id===author) && (!status)) { %>
-            <button class="btn btn-dark">Mark as complete</button>
+
+            <form action="/stories/complete" method="post">
+              <input type="hidden" name="story_id" value="<%= id %>">
+              <input type="submit" name="mark_complete" value="Mark as complete" class="btn btn-dark" />
+            </form>
             <% } %>
       </div>
     </section>

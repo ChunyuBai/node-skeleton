@@ -55,6 +55,7 @@ app.use('/new',newStory);
 
 app.use('/stories', storyRoutes);
 app.use('/story_contribution', contributionRoutes);
+app.use('/complete', storyRoutes);
 app.use('/login', loginUser);
 // Note: mount other resources here, using the same pattern above
 

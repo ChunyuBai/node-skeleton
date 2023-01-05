@@ -53,5 +53,18 @@ router.get('/:id', (req, res) => {
   })
 });
 
+// Marking a story as complete
+router.post('/complete', (req, res) => {
+
+  const story_id = req.body.story_id;
+
+  db
+    .query(`UPDATE stories
+            SET is_complete = true
+            WHERE id = $1;`,[story_id])
+    .then(result => {
+      res.redirect(`/stories/${story_id}`);
+    })
+});
 
 module.exports = router;

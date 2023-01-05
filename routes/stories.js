@@ -47,8 +47,8 @@ router.get('/:id', (req, res) => {
       author: storyData.author_id
     };
 
-    console.log('user', templateVars.user);
-    console.log('author', templateVars.author);
+    // console.log('user', templateVars.user);
+    // console.log('author', templateVars.author);
     res.render('stories', templateVars);
   })
 });

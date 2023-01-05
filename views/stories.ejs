@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
 
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
@@ -35,7 +34,6 @@
 
 <body>
 
-
   <header>
     <%- include('partials/header.ejs') %>
   </header>
@@ -51,7 +49,7 @@
     <section id="story">
       <div>
         <%= content %>
-          <% if ((user.id===author) && (!status)) { %>
+          <% if (user && (user.id===author) && (!status)) { %>
 
             <form action="/stories/complete" method="post">
               <input type="hidden" name="story_id" value="<%= id %>">

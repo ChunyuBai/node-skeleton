@@ -27,17 +27,17 @@ function createStoryElement(story) {
   return markup;
 }
 
-// Goes through an array of tweets and uses createTweetElement to put them into HTML
+// Goes through an array of stories and uses createStoryElement to put them into HTML format
 function renderStories(stories) {
   $("#stories-container").empty();
   for (let i = 0; i < stories.length; i++) {
     const newStory = createStoryElement(stories[i]);
-    $('#stories-container').append(newStory);
+    $('#stories-container').prepend(newStory);
 
   }
 }
 
-// Renders the tweets on the page
+// Renders the stories on the homepage
 function loadStories() {
   $.get( "/stories", function( data ) {
     renderStories(data);

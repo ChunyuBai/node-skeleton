@@ -12,8 +12,6 @@ router.get('/:id', (req, res) => {
   const story = storyQuery.getStoryWithId(id);
   const contributions = contributionsQuery.getContributionsWithStoryId(id);
 
-  console.log('req.session.userID:', req.session);
-
   const user = db
   .query(`SELECT *
   FROM users
@@ -37,8 +35,12 @@ router.get('/:id', (req, res) => {
       content: storyData.content,
       contributions: contributionData,
       user: userData,
-      status: storyData.is_complete
+      status: storyData.is_complete,
+      author: storyData.author_id
     };
+
+    console.log('user', templateVars.user);
+    console.log('author', templateVars.author);
     res.render('stories', templateVars);
   })
 });

@@ -33,6 +33,18 @@ section {
   }
 }
 
+#story {
+  div {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      max-width: 200px;
+      margin: 15px auto 5px;
+    }
+  }
+}
+
 #suggest_contribution {
   margin-top: 30px;
 

@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
     })
 });
 
-router.post('/:id', (req,res) => {
+router.post('/:id/upvote', (req,res) => {
 
   let id = req.params.id;
   const action = req.query.action;
@@ -33,17 +33,37 @@ router.post('/:id', (req,res) => {
   if (action === 'upvote') {
     dbquery = db.query(`UPDATE contributions
     SET upvotes = upvotes + 1
-    WHERE id = $1`,
+    WHERE id = $1;`,
     [id])
   } else if (action === 'downvote') {
     dbquery = db.query(`UPDATE contributions
     SET upvotes = upvotes - 1
-    WHERE id = $1`,
+    WHERE id = $1;`,
     [id])
   }
   dbquery.then(()=>{
     res.send({'message': 'contribution changed'})
   })
 });
+
+router.post('/:id/add',(req,res) => {
+  let id = Number(req.params.id);
+  let content = String(req.body.contribution);
+  console.log("content =====> ",content, id)
+  console.log('req body =====>',req.body)
+  db.query(`UPDATE stories
+   SET content = CONCAT(content, $1::text)
+   WHERE id = $2; `,
+   [content,id])
+   .then(()=> {
+    db.query(`DELETE FROM contributions
+    WHERE story_id = $1;`,
+    [id])
+   })
+   .then(() => {
+    res.send('story changed');
+   })
+
+})
 
 module.exports = router;

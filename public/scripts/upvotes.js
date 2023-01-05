@@ -1,7 +1,6 @@
 $(document).ready(function () {
   // let hasclick = false;
   // let id = window.location.pathname.split("/").pop();
-
   $('.upvote-btn')
   .on('click', function (event) {
     event.preventDefault();
@@ -9,10 +8,11 @@ $(document).ready(function () {
     const dataId = $(this).attr('data-id');
     let $upvoteNum = $(this).prev();
     const upvoteNumVal = Number($upvoteNum.html());
+    console.log('upvotenum ====>',upvoteNumVal);
       console.log('dataid=====>', dataId);
       $.ajax({
         method: 'POST',
-        url: `/story_contribution/${dataId}?action=upvote`
+        url: `/story_contribution/${dataId}/upvote?action=upvote`
       })
         .then((res) => {
           console.log('res===>',res);

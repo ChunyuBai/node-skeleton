@@ -1,26 +1,62 @@
-div {
+#submit_story {
+  background-color: #ff4500;
+  margin: auto;
+  width: 10%;
+}
+
+.bodyAttributes {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   margin: 2em;
 }
 
-.submit_story {
-  width: 5em;
-  height: 2em;
+.pageBody {
+  background-color: black;
+}
+
+.title {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.storyNameLabel {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.storyNameDiv {
+  display: flex;
+  justify-content: center;
 }
 
 .storyName {
-  width: 30em;
+  background-color: #272729;
+  border: 2px solid black;
+  color: white;
   margin: 2em;
+  width: 30em;
+}
+
+.storyBodyLabel {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.storyBodyDiv {
+  display: flex;
+  justify-content: center;
 }
 
 .content {
-  width: 50em;
+  background-color: #272729;
+  border: 2px solid black;
+  color: white;
   height: 20em;
   margin: 2em;
+  width: 50em;
 }
-
-
-
-

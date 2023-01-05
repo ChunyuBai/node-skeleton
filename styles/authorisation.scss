@@ -1,0 +1,40 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin: 10px 0 0 10px ;
+}
+
+h5 {
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-left: 10px;
+}
+
+input {
+  background-color: #272729;
+  border: 2px solid black;
+  color: white;
+  margin: 0 0 10px 10px;
+}
+
+.pageBody {
+  background-color: black;
+}
+
+.inputField {
+  display: flex;
+  justify-content: center;
+}
+
+.submitButton {
+  display: flex;
+  justify-content: center;
+}
+
+.registerButton {
+  background-color: #ff4500;
+}
+
+

@@ -1,7 +1,11 @@
 #submit_story {
   background-color: #ff4500;
   margin: auto;
-  width: 10%;
+  color: black;
+
+  &:hover {
+    color: white;
+  }
 }
 
 .bodyAttributes {
@@ -35,13 +39,14 @@
 .storyNameDiv {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .storyName {
   background-color: #272729;
   border: 2px solid black;
   color: white;
-  margin: 2em;
+  margin-bottom: 10px;
   width: 30em;
 }
 
@@ -61,6 +66,17 @@
   border: 2px solid black;
   color: white;
   height: 20em;
-  margin: 2em;
+  margin-bottom: 10px;
   width: 50em;
+}
+
+textarea,
+.storyName {
+  padding: 10px 15px;
+}
+
+label {
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
